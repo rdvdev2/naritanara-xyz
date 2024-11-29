@@ -1,0 +1,26 @@
+title = "naritanara.xyz"
+base_url = "/"
+compile_sass = true
+build_search_index = true
+theme = "terminimal"
+
+taxonomies = [
+  {name = "tags"}
+]
+
+[markdown]
+highlight_code = true
+
+[extra]
+accent_color = "pink-auto"
+background_color = "auto"
+logo_text = "naritanara.xyz"
+author = "Nara Díaz Viñolas"
+page_titles = "combined"
+
+menu_items = [
+  {name = "home", url = "/"},
+  {name = "tags", url = "/tags"},
+  {name = "archive", url = "/archive"},
+  {name = "about", url = "/about"},
+]
