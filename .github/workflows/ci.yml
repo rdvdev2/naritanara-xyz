@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: self-hosted
+    runs-on: ["racknet", "swarm-worker"]
     steps:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -26,7 +26,7 @@ jobs:
             registry.naritanara.xyz/naritanara-xyz:${{ github.sha }}
             
   update-service:
-    runs-on: self-hosted
+    runs-on: ["racknet", "swarm-manager"]
     needs: build-and-push
     steps:
       - name: Update service
