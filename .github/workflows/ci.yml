@@ -22,13 +22,12 @@ jobs:
         with:
           push: true
           tags: |
-            naritanara-xyz:latest
-            registry.naritanara.xyz:latest
-            naritanara-xyz:${{ github.sha }}
-            registry.naritanara.xyz:${{ github.sha }}
+            registry.naritanara.xyz/naritanara-xyz:latest
+            registry.naritanara.xyz/naritanara-xyz:${{ github.sha }}
             
   update-service:
     runs-on: self-hosted
+    needs: build-and-push
     steps:
       - name: Update service
         run: docker service update --image registry.naritanara.xyz/naritanara-xyz:latest naritanara-xyz_webserver
