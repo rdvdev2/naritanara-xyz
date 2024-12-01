@@ -24,8 +24,8 @@ jobs:
           tags: |
             naritanara-xyz:latest
             registry.naritanara.xyz:latest
-            naritanara-xyz:${{ GITHUB_SHA }}
-            registry.naritanara.xyz:${{ GITHUB_SHA }}
+            naritanara-xyz:${{ github.sha }}
+            registry.naritanara.xyz:${{ github.sha }}
             
   update-service:
     runs-on: self-hosted
