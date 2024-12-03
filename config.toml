@@ -17,6 +17,7 @@ background_color = "auto"
 logo_text = "naritanara.xyz"
 author = "Nara Díaz Viñolas"
 page_titles = "combined"
+favicon = "/favicon.png"
 
 menu_items = [
   {name = "home", url = "/"},
