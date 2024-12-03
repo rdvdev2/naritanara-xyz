@@ -30,4 +30,4 @@ jobs:
     needs: build-and-push
     steps:
       - name: Update service
-        run: docker service update --image registry.naritanara.xyz/naritanara-xyz:latest naritanara-xyz_webserver
+        run: docker service update --image registry.naritanara.xyz/naritanara-xyz:${{ github.sha }} naritanara-xyz_webserver
