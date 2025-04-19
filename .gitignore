@@ -2,3 +2,4 @@ public/
 result
 result-*
 .direnv
+.data

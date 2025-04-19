@@ -3,19 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
+    devshell.url = "github:numtide/devshell";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        build_deps = with pkgs; [ zola ];
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          buildInputs = build_deps;
-        };
-      }
-    );
+  outputs = inputs: import ./nix inputs;
 }
