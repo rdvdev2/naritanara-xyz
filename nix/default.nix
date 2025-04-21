@@ -1,17 +1,27 @@
 inputs@{ flake-parts, ... }:
 
-  flake-parts.lib.mkFlake { inherit inputs; } {
-    imports = [
-      inputs.pkgs-by-name-for-flake-parts.flakeModule
-      inputs.devshell.flakeModule
-      
-      ./devshell.nix
-    ];
+let flake =
+{ self, ...}:
+{
+  imports = [
+    inputs.pkgs-by-name-for-flake-parts.flakeModule
+    inputs.devshell.flakeModule
     
-    systems = [ "x86_64-linux" ];
+    ./nixos
+    ./devshell.nix
+  ];
+  
+  systems = [ "x86_64-linux" ];
     
-    perSystem = { self', ... }: {
-      pkgsDirectory = ./pkgs;
-      packages.default = self'.packages.naritanara-xyz;
-    };
-  }
+  perSystem = { self', ... }: {
+    pkgsDirectory = ./pkgs;
+    packages.default = self'.packages.naritanara-xyz;
+  };
+  
+  flake = {
+    nixosModules.default = self.nixosModules.naritanara-xyz;
+  };
+};
+in
+
+flake-parts.lib.mkFlake { inherit inputs; } flake
