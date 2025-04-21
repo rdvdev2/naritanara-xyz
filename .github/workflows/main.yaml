@@ -7,7 +7,7 @@ jobs:
         submodules: true
     - uses: DeterminateSystems/nix-installer-action@v16
     - name: Check flake
-      run: nix -Lv flake check '.?submodules=1'
+      run: nix -Lv flake check
     timeout-minutes: 15
 'on':
   push: {}

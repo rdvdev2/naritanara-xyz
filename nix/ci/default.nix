@@ -23,7 +23,7 @@
               inputs.actions-nix.lib.steps.DeterminateSystemsNixInstallerAction
               {
                 name = "Check flake";
-                run = "nix -Lv flake check '.?submodules=1'";
+                run = "nix -Lv flake check";
               }
             ];
           };

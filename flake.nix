@@ -2,6 +2,8 @@
   description = "Flake describing the website naritanara.xyz";
 
   inputs = {
+    self.submodules = true;
+    
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
