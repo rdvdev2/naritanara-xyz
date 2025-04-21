@@ -16,6 +16,9 @@
             steps = [
               {
                 uses = "actions/checkout@v4";
+                "with" = {
+                    submodules = true;
+                };
               }
               inputs.actions-nix.lib.steps.DeterminateSystemsNixInstallerAction
               {
