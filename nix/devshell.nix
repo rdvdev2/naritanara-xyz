@@ -20,6 +20,12 @@ let
           help = "Try to build the site without generating files.";
           category = "zola";
         }
+        {
+          name = "render-workflows";
+          command = "nix run '.#render-workflows'";
+          help = "Render GitHub workflows with actions.nix.";
+          category = "ci";
+        }
       ];
     }
   ];
