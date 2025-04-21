@@ -6,7 +6,10 @@ let flake =
   imports = [
     inputs.pkgs-by-name-for-flake-parts.flakeModule
     inputs.devshell.flakeModule
+    inputs.git-hooks-nix.flakeModule
+    inputs.actions-nix.flakeModules.default
     
+    ./ci
     ./nixos
     ./devshell.nix
   ];
